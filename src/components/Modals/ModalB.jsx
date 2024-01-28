@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ModalC from "./ModalC";
+import ModalD from "./ModalD";
 
 const ModalB = ({ contacts }) => {
    const [USContacts, setUSContacts] = useState([]);
@@ -60,12 +60,12 @@ const ModalB = ({ contacts }) => {
                               <td scope="col">{item.country.name}</td>
                               <td scope="col">
                                  <button
-                                    data-target="#modalC"
+                                    data-target="#modalD"
                                     data-toggle="modal"
                                     className="btn btn-primary">
                                     Open
                                  </button>
-                                 <ModalC
+                                 <ModalD
                                     phone={item.phone}
                                     county={item.country.name}
                                  />
