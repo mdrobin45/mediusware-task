@@ -1,3 +1,5 @@
+import ModalC from "./ModalC";
+
 const ModalA = ({ contacts, evenOnly, setEvenOnly }) => {
    return (
       <div
@@ -21,12 +23,25 @@ const ModalA = ({ contacts, evenOnly, setEvenOnly }) => {
                            <th scope="col">ID</th>
                            <th scope="col">Phone</th>
                            <th scope="col">Country</th>
+                           <th scope="col">Action</th>
                         </tr>
                         {contacts.map((item, index) => (
                            <tr key={index}>
                               <td scope="col">{item.id}</td>
                               <td scope="col">{item.phone}</td>
                               <td scope="col">{item.country.name}</td>
+                              <td scope="col">
+                                 <button
+                                    data-target="#modalC"
+                                    data-toggle="modal"
+                                    className="btn btn-primary">
+                                    Open
+                                 </button>
+                                 <ModalC
+                                    phone={item.phone}
+                                    county={item.country.name}
+                                 />
+                              </td>
                            </tr>
                         ))}
                      </thead>
