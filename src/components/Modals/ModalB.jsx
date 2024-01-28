@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ModalC from "./ModalC";
 
 const ModalB = ({ contacts }) => {
    const [USContacts, setUSContacts] = useState([]);
@@ -50,12 +51,25 @@ const ModalB = ({ contacts }) => {
                            <th scope="col">ID</th>
                            <th scope="col">Phone</th>
                            <th scope="col">Country</th>
+                           <th scope="col">Action</th>
                         </tr>
                         {USContacts.map((item, index) => (
                            <tr key={index}>
                               <td scope="col">{item.id}</td>
                               <td scope="col">{item.phone}</td>
                               <td scope="col">{item.country.name}</td>
+                              <td scope="col">
+                                 <button
+                                    data-target="#modalC"
+                                    data-toggle="modal"
+                                    className="btn btn-primary">
+                                    Open
+                                 </button>
+                                 <ModalC
+                                    phone={item.phone}
+                                    county={item.country.name}
+                                 />
+                              </td>
                            </tr>
                         ))}
                      </thead>

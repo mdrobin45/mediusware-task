@@ -1,6 +1,7 @@
 const ModalC = ({ phone, county }) => {
    return (
       <div
+         style={{ border: "1px solid #46139f" }}
          className="modal fade"
          id="modalC"
          tabindex="-1"
