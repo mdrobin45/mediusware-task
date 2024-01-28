@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ModalA from "./Modals/ModalA";
 import ModalB from "./Modals/ModalB";
 
@@ -7,6 +8,7 @@ const Problem2 = () => {
    const [contacts, setContacts] = useState([]);
    const [displayContacts, setDisplayContacts] = useState([]);
    const [isOnlyEven, setIsOnlyEven] = useState(false);
+   const [searchParams, setSearchParams] = useSearchParams();
 
    // Fetch all contacts
    useEffect(() => {
@@ -39,6 +41,12 @@ const Problem2 = () => {
 
             <div className="d-flex justify-content-center gap-3">
                <button
+                  onClick={() => {
+                     setSearchParams((prev) => {
+                        prev.set("contacts", "all");
+                        return prev;
+                     });
+                  }}
                   data-target="#modalA"
                   data-toggle="modal"
                   className="btn btn-lg btn-outline-primary"
@@ -46,6 +54,12 @@ const Problem2 = () => {
                   All Contacts
                </button>
                <button
+                  onClick={() => {
+                     setSearchParams((prev) => {
+                        prev.set("contacts", "us-contacts");
+                        return prev;
+                     });
+                  }}
                   data-target="#modalB"
                   data-toggle="modal"
                   className="btn btn-lg btn-outline-warning"
